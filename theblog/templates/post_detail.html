@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>By {{ post.author }}</p>
+    <p>{{ post.text }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Like</button>
+    </form>
+    <p>{{ post.likes }} likes</p>
+    <a href="{% url 'start_page' %}">Back to all posts</a>
+</body>
+</html>
+{% endblock %}

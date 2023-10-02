@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Posts</title>
+</head>
+<body>
+    <h1>All Posts</h1>
+    {% for post in blogs %}
+    <div>
+        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+        <p>{{ post.text|truncatewords:30 }}</p>
+        <p>{{ post.likes }} likes</p>
+    </div>
+    {% endfor %}
+    <a href="{% url 'add_post' %}">Add new post</a>
+</body>
+</html>
+{% endblock %}
